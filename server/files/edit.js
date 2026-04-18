@@ -66,8 +66,18 @@ function putMovie() {
     - Configure the function below as the onload event handler
     - Send the movie data as JSON
   */
-
+  const movieData = getMovie(); 
+  
+  // xhr konfigurieren
   const xhr = new XMLHttpRequest();
+  xhr.open("PUT", "/movies/" + imdbID);
+  
+  // WICHTIG: Content-Type für JSON setzen
+  xhr.setRequestHeader("Content-Type", "application/json");
+  
+  
+
+  //const xhr = new XMLHttpRequest();
   xhr.onload = function () {
     if (xhr.status == 200 || xhr.status === 204) {
       location.href = "index.html";
